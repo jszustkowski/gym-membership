@@ -26,3 +26,14 @@ def test_add_class():
     trainer = Trainer(1, "Marek", "joga")
     gym.add_class(FitnessClass("Joga", trainer, 10))
     assert len(gym.classes) == 1
+
+def test_average_payment():
+    gym = Gym("FitZone")
+    gym.register_payment(Payment(make_member(1), 100.0))
+    gym.register_payment(Payment(make_member(2), 200.0))
+    assert gym.average_payment() == 150.0
+
+
+def test_average_payment_empty():
+    gym = Gym("FitZone")
+    assert gym.average_payment() == 0.0

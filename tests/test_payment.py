@@ -23,3 +23,15 @@ def test_pay_sets_paid():
 def test_negative_amount_raises():
     with pytest.raises(ValueError):
         Payment(make_member(), -50.0)
+
+def test_refund_after_paid():
+    payment = Payment(make_member(), 100.0)
+    payment.pay()
+    payment.refund()
+    assert payment.paid is False
+
+
+def test_refund_without_paying_raises():
+    payment = Payment(make_member(), 100.0)
+    with pytest.raises(ValueError):
+        payment.refund()

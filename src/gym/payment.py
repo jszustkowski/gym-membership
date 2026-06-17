@@ -20,3 +20,12 @@ class Payment:
     def pay(self) -> None:
         """Oznacza płatność jako opłaconą."""
         self.paid = True
+
+    def refund(self) -> None:
+        """Cofa opłaconą płatność (zwrot).
+
+        Zgłasza ValueError, jeśli płatność nie była opłacona.
+        """
+        if not self.paid:
+            raise ValueError("Nie można zwrócić nieopłaconej płatności.")
+        self.paid = False
