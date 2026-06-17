@@ -13,3 +13,7 @@ class Trainer:
     def describe(self) -> str:
         """Zwraca krótki opis trenera."""
         return f"{self.name} ({self.specialty})"
+
+    def is_specialist_in(self, specialty: str) -> bool:
+        """Sprawdza, czy trener ma daną specjalizację (bez wielkości liter)."""
+        return self.specialty.lower() == specialty.lower()
