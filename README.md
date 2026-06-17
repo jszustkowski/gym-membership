@@ -117,10 +117,10 @@ print(joga.free_spots())    # 9
 
 | Osoba | Gałąź | Zakres |
 |-------|-------|--------|
-| jszustkowski (Jakub Szustkowski) | `feature_member` | Klasa `Member`, struktura projektu, README + testy |
-| KarolPoz420 | `feature_payment` | Klasy `Payment` i `Gym` (`refund`, `average_payment`) + testy |
-| GitMic2 | `feature_class` | Klasa `FitnessClass` (`remove_member`) + testy |
-| 88169 | `feature_membership` | Klasy `Membership` i `Trainer` (`describe`, `is_specialist_in`) + testy |
+| Jakub Szustkowski | `feature_member` | Klasa `Member`, struktura projektu, README + testy |
+| Karol Poznański | `feature_payment` | Klasy `Payment` i `Gym` (`refund`, `average_payment`) + testy |
+| Michał Stachowski | `feature_class` | Klasa `FitnessClass` (`remove_member`) + testy |
+| Vadym Boichuk | `feature_membership` | Klasy `Membership` i `Trainer` (`describe`, `is_specialist_in`) + testy |
 
 ## Praca z GitHubem
 
