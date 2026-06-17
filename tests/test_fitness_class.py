@@ -48,3 +48,16 @@ def test_duplicate_member_raises():
 def test_invalid_capacity_raises():
     with pytest.raises(ValueError):
         FitnessClass("Joga", make_trainer(), 0)
+
+def test_remove_member():
+    fc = FitnessClass("Joga", make_trainer(), 5)
+    member = make_member(1)
+    fc.add_member(member)
+    fc.remove_member(member)
+    assert fc.free_spots() == 5
+
+
+def test_remove_member_not_enrolled_raises():
+    fc = FitnessClass("Joga", make_trainer(), 5)
+    with pytest.raises(ValueError):
+        fc.remove_member(make_member(99))
