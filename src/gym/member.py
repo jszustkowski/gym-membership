@@ -31,3 +31,8 @@ class Member:
     def is_adult(self) -> bool:
         """Sprawdza, czy członek jest pełnoletni."""
         return self.age >= 18
+    
+    def describe(self) -> str:
+        """Zwraca krótki opis karnetu."""
+        status = "aktywny" if self.active else "nieaktywny"
+        return f"{self.plan_name} ({self.price} zl, {self.days} dni) - {status}"
