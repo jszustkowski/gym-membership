@@ -28,3 +28,8 @@ class Membership:
     def deactivate(self) -> None:
         """Dezaktywuje karnet (np. po wygaśnięciu lub rezygnacji)."""
         self.active = False
+
+    def describe(self) -> str:
+        """Zwraca krótki opis karnetu."""
+        status = "aktywny" if self.active else "nieaktywny"
+        return f"{self.plan_name} ({self.price} zl, {self.days} dni) - {status}"
