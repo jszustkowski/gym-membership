@@ -37,3 +37,12 @@ class FitnessClass:
         if member in self.members:
             raise ValueError("Członek jest już zapisany na te zajęcia.")
         self.members.append(member)
+
+    def remove_member(self, member: Member) -> None:
+        """Wypisuje członka z zajęć.
+
+        Zgłasza ValueError, jeśli członek nie był zapisany.
+        """
+        if member not in self.members:
+            raise ValueError("Członek nie jest zapisany na te zajęcia.")
+        self.members.remove(member)
