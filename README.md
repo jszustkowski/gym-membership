@@ -15,22 +15,22 @@ grupowe i płatności. Projekt napisany w czystym Pythonie.
 ## Funkcjonalności
 
 - rejestracja członków i sprawdzanie pełnoletności,
-- karnety (cena, czas trwania, aktywacja/dezaktywacja),
-- trenerzy ze specjalizacją,
-- zajęcia grupowe z limitem miejsc i kontrolą zapisów,
-- płatności i sumowanie przychodu,
-- klasa `Gym` spinająca całość.
+- karnety (cena, czas trwania, aktywacja/dezaktywacja, opis),
+- trenerzy ze specjalizacją i sprawdzaniem kompetencji,
+- zajęcia grupowe z limitem miejsc, zapisywaniem i wypisywaniem członków,
+- płatności wraz ze zwrotami (refund) i sumowaniem przychodu,
+- klasa `Gym` spinająca całość (członkowie, zajęcia, płatności, raporty).
 
 ## Klasy
 
 | Klasa | Plik | Opis |
 |-------|------|------|
-| `Member` | `src/gym/member.py` | Członek siłowni |
-| `Membership` | `src/gym/membership.py` | Karnet członka |
-| `Trainer` | `src/gym/trainer.py` | Trener |
-| `FitnessClass` | `src/gym/fitness_class.py` | Zajęcia grupowe |
-| `Payment` | `src/gym/payment.py` | Płatność |
-| `Gym` | `src/gym/gym.py` | Główna klasa siłowni |
+| `Member` | `src/gym/member.py` | Członek siłowni (dane, wiek, pełnoletność) |
+| `Membership` | `src/gym/membership.py` | Karnet członka (cena, czas trwania, status) |
+| `Trainer` | `src/gym/trainer.py` | Trener i jego specjalizacja |
+| `FitnessClass` | `src/gym/fitness_class.py` | Zajęcia grupowe z limitem miejsc |
+| `Payment` | `src/gym/payment.py` | Płatność (opłacenie, zwrot) |
+| `Gym` | `src/gym/gym.py` | Główna klasa zarządzająca siłownią |
 
 ## Struktura projektu
 
@@ -69,8 +69,26 @@ cd gym-membership
 pip install -r requirements.txt
 
 python demo.py   # przykład użycia
-pytest           # uruchomienie testów
+pytest           # uruchomienie testów (35 testów)
 ```
+
+Sam kod źródłowy korzysta wyłącznie z biblioteki standardowej Pythona.
+Pakiet `pytest` jest potrzebny jedynie do uruchamiania testów.
+
+## Testy
+
+Projekt zawiera **35 testów**: 32 jednostkowe oraz 3 integracyjne,
+symulujące pełne przepływy (rejestracja → karnet → zajęcia → przychód).
+
+| Plik | Liczba testów |
+|------|---------------|
+| `test_member.py` | 4 |
+| `test_membership.py` | 6 |
+| `test_trainer.py` | 4 |
+| `test_fitness_class.py` | 8 |
+| `test_payment.py` | 5 |
+| `test_gym.py` | 5 |
+| `test_integration.py` | 3 (integracyjne) |
 
 ## Przykład użycia
 
@@ -99,15 +117,15 @@ print(joga.free_spots())    # 9
 
 | Osoba | Gałąź | Zakres |
 |-------|-------|--------|
-| Jakub Szustkowski | `feature_member` | `Member` + testy |
-| _(uzupełnić)_ | `feature_membership` | `Membership` + testy |
-| _(uzupełnić)_ | `feature_trainer` | `Trainer` + testy |
-| _(uzupełnić)_ | `feature_class` | `FitnessClass` + testy |
-| _(uzupełnić)_ | `feature_payment` | `Payment`, `Gym` + testy |
+| jszustkowski (Jakub Szustkowski) | `feature_member` | Klasa `Member`, struktura projektu, README + testy |
+| KarolPoz420 | `feature_payment` | Klasy `Payment` i `Gym` (`refund`, `average_payment`) + testy |
+| GitMic2 | `feature_class` | Klasa `FitnessClass` (`remove_member`) + testy |
+| 88169 | `feature_membership` | Klasy `Membership` i `Trainer` (`describe`, `is_specialist_in`) + testy |
 
 ## Praca z GitHubem
 
 - Gałęzie stałe: `main` (wersje gotowe) i `dev` (integracja).
-- Każda funkcjonalność na osobnej gałęzi `feature_*` odbitej od `dev`.
-- Zmiany trafiają do `dev` przez Pull Request z przynajmniej jednym review.
-- Po zakończeniu pracy `dev` scalany do `main` z tagiem wersji (np. `v1.0`).
+- Każda funkcjonalność powstawała na osobnej gałęzi `feature_*` odbitej od `dev`.
+- Zmiany trafiały do `dev` przez Pull Request z recenzją (code review) innej osoby.
+- Po scaleniu wszystkich funkcjonalności `dev` został zmergowany do `main`
+  i oznaczony tagiem wersji `v1.0`.
