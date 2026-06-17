@@ -35,3 +35,10 @@ class Gym:
     def total_income(self) -> float:
         """Zwraca sumę wszystkich opłaconych płatności."""
         return sum(p.amount for p in self.payments if p.paid)
+
+    def average_payment(self) -> float:
+        """Zwraca średnią kwotę opłaconych płatności (0 gdy brak płatności)."""
+        paid = [p.amount for p in self.payments if p.paid]
+        if not paid:
+            return 0.0
+        return sum(paid) / len(paid)
