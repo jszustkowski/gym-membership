@@ -1,8 +1,5 @@
 # Gym Membership — System zarządzania członkostwem w siłowni
 
-Prosty system do obsługi siłowni: członkowie, karnety, trenerzy, zajęcia
-grupowe i płatności. Projekt napisany w czystym Pythonie.
-
 ## Wymagania projektu
 
 - model dziedzinowy złożony z co najmniej 5 klas,
