@@ -59,16 +59,6 @@ gym-membership/
 ## Instalacja i uruchomienie
 
 Wymagany Python 3.10 lub nowszy.
-
-```bash
-git clone https://github.com/jszustkowski/gym-membership.git
-cd gym-membership
-pip install -r requirements.txt
-
-python demo.py   # przykład użycia
-pytest           # uruchomienie testów (35 testów)
-```
-
 Sam kod źródłowy korzysta wyłącznie z biblioteki standardowej Pythona.
 Pakiet `pytest` jest potrzebny jedynie do uruchamiania testów.
 
